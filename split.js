@@ -1,3 +1,5 @@
+const { title } = require("process");
+
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
 let pageTitle = document.getElementById("title");
@@ -14,6 +16,10 @@ let tab3 = document.getElementById("part3");
 
 let file = 0;
 let mode = 1;
+let request;
+let startTime = Date.now();
+
+let recordingTimeMS = 5000;
 
 // ----- Hide elements when page loads (step2)
 recording.style.display = 'none';
@@ -21,6 +27,17 @@ uploadButton.style.display = 'none';
 stopButton.style.display = 'none';
 tab1.style.borderColor = '#73FF8C';
 tab1.style.color = '#73FF8C';
+
+// ----- Reset containers when changing tab
+const reset = () => {
+    recording.style.display = 'none';
+    uploadButton.style.display = 'none';
+    preview.style.display = '';
+    startButton.style = '';
+    startButton.innerHTML = 'Start recording';
+    overlay.style.display = '';
+    title.innerHTML = 'Preview';
+}
 
 // ----- Navigation
 tab1.onclick = () => {
@@ -34,6 +51,7 @@ tab1.onclick = () => {
 
     overlay.src='assets/face-part1.svg';
     mode =1;
+    reset();
 };
 tab2.onclick = () => {
     tab2.style.borderColor = '#73FF8C';
@@ -46,6 +64,7 @@ tab2.onclick = () => {
 
     overlay.src='assets/face-part2.svg';
     mode=2;
+    reset();
 };
 tab3.onclick = () => {
     tab3.style.borderColor = '#73FF8C';
@@ -58,6 +77,7 @@ tab3.onclick = () => {
 
     overlay.src='assets/face-part3.svg';
     mode=3;
+    reset();
 };
 
 
@@ -76,8 +96,6 @@ navigator.mediaDevices.getUserMedia({
 
 // ----- Recording
 
-let recordingTimeMS = 2000;
-
 // Log recording status
 function log(msg) {
   logElement.innerHTML += msg + "\n";
@@ -88,14 +106,18 @@ function wait(delayInMS) {
   return new Promise(resolve => setTimeout(resolve, delayInMS));
 }
 
-// Recording function
+//- Recording function
 function startRecording(stream, lengthInMS) {
+
+    startTime = Date.now();
 
     // Update info on page
     startButton.innerHTML = "Recording...";
     startButton.style.backgroundColor = "red";
     startButton.style.color = "white";
     pageTitle.innerHTML = "Recording";
+
+    overlayAnimation();
 
   let recorder = new MediaRecorder(stream);
   let data = [];
@@ -125,7 +147,7 @@ function stop(stream) {
   stream.getTracks().forEach(track => track.stop());
 }
 
-// Start + Recording + download
+// ---- Start + Recording + download
 startButton.addEventListener("click", function() {
 //   navigator.mediaDevices.getUserMedia({
 //     video: true,
@@ -224,4 +246,29 @@ function resumableUpload(e) {
         }
         document.getElementById("progress").innerText = msg;
     });
+}
+
+
+// ---- Overlay Animation for each mode
+const overlayAnimation = () => {
+    request = requestAnimationFrame(overlayAnimation);
+    let timeEllapsed = Date.now()-startTime;
+
+    if(mode ==1) {
+        
+        if(timeEllapsed >= 1500 && timeEllapsed < 2500) {
+            overlay.src='assets/face-part1-b.svg';
+        }
+        if(timeEllapsed >= 2500 && timeEllapsed < 3500) {
+            overlay.src='assets/face-part1-c.svg';
+        }
+        if(timeEllapsed >= 3500 && timeEllapsed < recordingTimeMS) {
+            overlay.src='assets/face-part1-d.svg';
+        }
+        if(timeEllapsed >= recordingTimeMS) {
+            //overlay.src='assets/face-part1.svg';
+            cancelAnimationFrame(request)
+        }
+
+    }
 }

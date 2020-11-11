@@ -35,7 +35,7 @@ header {
     background-color: white;
     text-decoration: none;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 2px;
 }
   
@@ -64,13 +64,13 @@ h2 {
 .stack-item-bottom {
     position: relative;
     z-index: -1;
+    transform: scale(-1, 1);
 }
   
 .stack-item-top {
     position: absolute;
     z-index: 1;
 }
-
 
   
 .bottom {
