@@ -1,5 +1,3 @@
-const { title } = require("process");
-
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
 let pageTitle = document.getElementById("title");
