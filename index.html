@@ -9,29 +9,27 @@
 </html>
 
 <body>
-    <div class="left">
+    <div class="container">
+        <h2 id="title">Preview</h2>
+        <video id="preview" width="640" height="480" autoplay muted></video>
         <div id="startButton" class="button">
-          Start
+            Start recording
         </div>
-        <h2>Preview</h2>
-        <video id="preview" width="160" height="120" autoplay muted></video>
-      </div>
-      <div class="right">
         <div id="stopButton" class="button">
           Stop
         </div>
-        <h2>Recording</h2>
-        <video id="recording" width="160" height="120" controls></video>
-        <a id="downloadButton" class="button">
+        <video id="recording" width="640" height="480" controls></video>
+        <!-- <a id="downloadButton" class="button">
           Download
-        </a>
+        </a> -->
         <a id="uploadButton" class="button">
           Upload  
           </a>
-      </div>
-      <div class="bottom">
+        <div class="bottom">
         <pre id="log"></pre>
-      </div>
-      <div id="progress"></div>
+        </div>
+        <div id="progress"></div>
+    </div>
+
     <script src="split.js"></script>
 </body>

@@ -1,45 +1,48 @@
 body {
-    font: 14px "Open Sans", "Arial", sans-serif;
+    font: 14px "Futura", "Arial", sans-serif;
+    background-color: black;
   }
   
 video {
-    margin-top: 2px;
-    border: 1px solid black;
+    /* margin-top: 2px; */
+    /* border: 1px solid black; */
+    
 }
   
 .button {
     cursor: pointer;
     display: block;
     width: 160px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 16px;
     text-align: center;
-    padding-top: 2px;
-    padding-bottom: 4px;
-    color: white;
-    background-color: darkgreen;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: black;
+    background-color: white;
     text-decoration: none;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 2px;
 }
   
 h2 {
-    margin-bottom: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
 }
   
-.left {
-    margin-right: 10px;
-    float: left;
-    width: 160px;
+.container {
+    /* margin-right: 10px; */
+    /* float: left; */
+    margin: 0 auto;
+    width: 640px;
     padding: 0px;
 }
   
-.right {
-    margin-left: 10px;
-    float: left;
-    width: 160px;
-    padding: 0px;
-}
   
 .bottom {
     clear: both;
     padding-top: 10px;
+    color: white;
 }
