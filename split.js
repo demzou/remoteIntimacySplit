@@ -7,15 +7,60 @@ let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
 let logElement = document.getElementById("log");
 let overlay = document.getElementById("silhouette");
+
+let tab1 = document.getElementById("part1");
+let tab2 = document.getElementById("part2");
+let tab3 = document.getElementById("part3");
+
 let file = 0;
-
-//overlay.src="assets/face2.svg";
-
+let mode = 1;
 
 // ----- Hide elements when page loads (step2)
 recording.style.display = 'none';
 uploadButton.style.display = 'none';
 stopButton.style.display = 'none';
+tab1.style.borderColor = '#73FF8C';
+tab1.style.color = '#73FF8C';
+
+// ----- Navigation
+tab1.onclick = () => {
+    tab1.style.borderColor = '#73FF8C';
+    tab1.style.color = '#73FF8C';
+
+    tab2.style.borderColor = 'black';
+    tab2.style.color = 'white';
+    tab3.style.borderColor = 'black';
+    tab3.style.color = 'white';
+
+    overlay.src='assets/face-part1.svg';
+    mode =1;
+};
+tab2.onclick = () => {
+    tab2.style.borderColor = '#73FF8C';
+    tab2.style.color = '#73FF8C';
+
+    tab1.style.borderColor = 'black';
+    tab1.style.color = 'white';
+    tab3.style.borderColor = 'black';
+    tab3.style.color = 'white';
+
+    overlay.src='assets/face-part2.svg';
+    mode=2;
+};
+tab3.onclick = () => {
+    tab3.style.borderColor = '#73FF8C';
+    tab3.style.color = '#73FF8C';
+
+    tab2.style.borderColor = 'black';
+    tab2.style.color = 'white';
+    tab1.style.borderColor = 'black';
+    tab1.style.color = 'white';
+
+    overlay.src='assets/face-part3.svg';
+    mode=3;
+};
+
+
 
 // ---- Show preview when land on page
 navigator.mediaDevices.getUserMedia({

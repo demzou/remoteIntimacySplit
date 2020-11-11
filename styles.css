@@ -2,6 +2,24 @@ body {
     font: 14px "Futura", "Arial", sans-serif;
     background-color: black;
   }
+
+header {
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+.tab {
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    width: 120px;
+    margin: 20px 10px 30px 10px;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+    border-color: black;
+    text-align: center;
+    
+}
   
   
 .button {
