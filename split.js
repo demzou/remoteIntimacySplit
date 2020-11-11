@@ -6,7 +6,10 @@ let stopButton = document.getElementById("stopButton");
 let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
 let logElement = document.getElementById("log");
+let overlay = document.getElementById("silhouette");
 let file = 0;
+
+//overlay.src="assets/face2.svg";
 
 
 // ----- Hide elements when page loads (step2)
@@ -97,6 +100,7 @@ startButton.addEventListener("click", function() {
     //Update elements on page
     preview.style.display = 'none';
     startButton.style.display = 'none';
+    overlay.style.display = 'none';
     recording.style.display='';
     uploadButton.style.display = '';
     pageTitle.innerHTML = "Replay & Upload";

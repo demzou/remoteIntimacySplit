@@ -3,11 +3,6 @@ body {
     background-color: black;
   }
   
-video {
-    /* margin-top: 2px; */
-    /* border: 1px solid black; */
-    
-}
   
 .button {
     cursor: pointer;
@@ -31,15 +26,34 @@ h2 {
     text-align: center;
     color: white;
 }
-  
+
 .container {
-    /* margin-right: 10px; */
-    /* float: left; */
     margin: 0 auto;
     width: 640px;
-    padding: 0px;
+}
+
+.silhouetteSvg {
+    width: 640px;
+    height: 480px;
+    display: block;
+}
+
+.video-img-stack {
+    display: block;
+    /* position: relative;  */
+}
+
+.stack-item-bottom {
+    position: relative;
+    z-index: -1;
 }
   
+.stack-item-top {
+    position: absolute;
+    z-index: 1;
+}
+
+
   
 .bottom {
     clear: both;
