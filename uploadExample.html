@@ -1,0 +1,59 @@
+<script src="https://cdn.jsdelivr.net/gh/tanaikech/ResumableUploadForGoogleDrive_js@master/resumableupload_js.min.js"></script>
+
+<body>
+  <form>
+    <input name="file" id="uploadfile" type="file" />
+  </form>
+  <div id="progress"></div>
+</body>
+
+<script>
+  //const accessToken = gapi.auth.getToken().access_token; // Please set access token here.
+  const accessToken = 'ya29.A0AfH6SMB-KHpcxI-TbseV2s-AlASOvSuJHECPNwVCUtC_P76hzcZKUqaaQbEdPgyZHjGPCTl0-A2kU_NqVexhtpVaYs-Sj-waXr4GICWFLwAPI0hSZpan6FUQddCSD-SO1dhPeVlurILJ_Y0eLiW69UfF0VQS209gWrLI44AXXE4';
+  //https://developers.google.com/oauthplayground//
+
+  document.getElementById("uploadfile").addEventListener("change", run, false);
+
+  function run(obj) {
+    const file = obj.target.files[0];
+    if (file.name != "") {
+      let fr = new FileReader();
+      fr.fileName = file.name;
+      fr.fileSize = file.size;
+      fr.fileType = file.type;
+      fr.readAsArrayBuffer(file);
+      fr.onload = resumableUpload;
+    }
+  }
+
+  function resumableUpload(e) {
+    document.getElementById("progress").innerHTML = "Initializing.";
+    const f = e.target;
+    const resource = {
+      fileName: f.fileName,
+      fileSize: f.fileSize,
+      fileType: f.fileType,
+      fileBuffer: f.result,
+      accessToken: accessToken,
+      folderId: '1UBJ-nCLMRzh16SdjQCXzAPODaTxQZNWl'
+    };
+    const ru = new ResumableUploadToGoogleDrive();
+    ru.Do(resource, function(res, err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(res);
+      let msg = "";
+      if (res.status == "Uploading") {
+        msg =
+          Math.round(
+            (res.progressNumber.current / res.progressNumber.end) * 100
+          ) + "%";
+      } else {
+        msg = res.status;
+      }
+      document.getElementById("progress").innerText = msg;
+    });
+  }
+</script>
