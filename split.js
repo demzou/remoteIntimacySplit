@@ -1,3 +1,6 @@
+
+const accessToken = 'ya29.A0AfH6SMCoS4vh25LxpYFqotf5R3Q80x3yvdvCZQaPnoZEmc2VjiHwRocG6UNqToedN1dAJF1I-YkdddmjvYRDmwYEbgCu39MlVC4DtPrIsmieUKj7TsBXKhmc4zehS432q-vgHJLTiQ5yVMPo0UDuj2mkg_vc49f_4dcDGu72IuBy';
+
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
 let pageTitle = document.getElementById("title");
@@ -18,19 +21,73 @@ let request;
 let startTime = Date.now();
 
 let recordingTimeMS = 45000;
-let folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';
+let folderIdTarget = '1ATJ8lvOvZDFAuDw8Anc1V3rF9PTStEZz';       // Consent folder
 
-// ----- Hide elements when page loads (step2)
+// ----- Hide elements when page loads
 recording.style.display = 'none';
 uploadButton.style.display = 'none';
 stopButton.style.display = 'none';
 tab1.style.borderColor = '#73FF8C';
 tab1.style.color = '#73FF8C';
 
+
+
+
+
+// ------ Create JSON file and create downloadable blob, then upload to drive
+const saveUserData = (function () {
+    let a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    return function(data, fileName) {
+        let json = JSON.stringify(data),
+            blob = new Blob([json], {type: "octet/stream"}),
+            url = window.URL.createObjectURL(blob);
+        // a.href = url;
+        // a.download = fileName;
+        //a.click();
+
+        file = blob;
+        window.URL.revokeObjectURL(url);
+    };
+}());
+
+// Upload function
+function uploadData(obj) {
+    if (file.name != "") {
+      let fr = new FileReader();
+      fr.fileName = jsonName;
+      fr.fileSize = file.size;
+      fr.fileType = file.type;
+      fr.readAsArrayBuffer(file);
+      fr.onload = resumableUpload;
+    }
+  }
+
+// ------ User data and consent (JSON)
+let userData = {
+    firstName: 'Clem',
+    lastName: 'Debaig',
+    date: new Date(),
+    consent: true
+}, 
+jsonName = userData.firstName + '-consent-form.json';
+
+saveUserData(userData, jsonName);
+uploadData();
+
+
+
+
+
+
+
 // ----- Reset containers when changing tab
 const reset = () => {
     recording.style.display = 'none';
+    uploadButton.style = '';
     uploadButton.style.display = 'none';
+    uploadButton.innerHTML = 'Upload';
     preview.style.display = '';
     startButton.style = '';
     startButton.innerHTML = 'Start recording';
@@ -199,7 +256,7 @@ stopButton.addEventListener("click", function() {
 
 // GDrive API Access token
 //const accessToken = gapi.auth.getToken().access_token; // Please set access token here.
-const accessToken = 'ya29.A0AfH6SMCwaceK2pxDw0b1CGXHSg003nty504SVpUpEXSITdSpSpeaJLflqlz6ByPj6WSzG_MPTB0W-oAq0YZ7ELFhwOR1-RnPKrqBqzv3nXEsXjqUXfrSfa87OHxEUurqUeIWtpLh1VNSI6lUrJ1rtIrRmaGBtaGNuQUU2eeUWUI';
+//////-- Moved to the top
 //https://developers.google.com/oauthplayground//
 // Will need to create proper authentification
 
@@ -250,6 +307,13 @@ function resumableUpload(e) {
         msg = res.status;
         }
         document.getElementById("progress").innerText = msg;
+        uploadButton.innerHTML = msg;
+        uploadButton.style.backgroundColor = 'black';
+        uploadButton.style.color = 'white';
+        uploadButton.style.pointerEvents = 'none';
+        if(msg == "Done") {
+            uploadButton.style.color = '#73FF8C';
+        }
     });
 }
 
