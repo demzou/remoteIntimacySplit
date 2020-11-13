@@ -17,7 +17,7 @@ let mode = 1;
 let request;
 let startTime = Date.now();
 
-let recordingTimeMS = 5000;
+let recordingTimeMS = 45000;
 
 // ----- Hide elements when page loads (step2)
 recording.style.display = 'none';
@@ -47,8 +47,9 @@ tab1.onclick = () => {
     tab3.style.borderColor = 'black';
     tab3.style.color = 'white';
 
-    overlay.src='assets/face-part1.svg';
+    overlay.src='assets/overlay-part1-a.svg';
     mode =1;
+    recordingTimeMS = 45000;
     reset();
 };
 tab2.onclick = () => {
@@ -60,8 +61,9 @@ tab2.onclick = () => {
     tab3.style.borderColor = 'black';
     tab3.style.color = 'white';
 
-    overlay.src='assets/face-part2.svg';
+    overlay.src='assets/overlay-part2-a.svg';
     mode=2;
+    recordingTimeMS = 59000;
     reset();
 };
 tab3.onclick = () => {
@@ -73,8 +75,9 @@ tab3.onclick = () => {
     tab1.style.borderColor = 'black';
     tab1.style.color = 'white';
 
-    overlay.src='assets/face-part3.svg';
+    overlay.src='assets/overlay-part3.svg';
     mode=3;
+    recordingTimeMS = 30000;
     reset();
 };
 
@@ -253,20 +256,127 @@ const overlayAnimation = () => {
     let timeEllapsed = Date.now()-startTime;
 
     if(mode ==1) {
-        
-        if(timeEllapsed >= 1500 && timeEllapsed < 2500) {
-            overlay.src='assets/face-part1-b.svg';
+        // Animation for part 1
+        if(timeEllapsed >= 4000 && timeEllapsed < 7000) {
+            overlay.src='assets/overlay-part1-b.svg';
         }
-        if(timeEllapsed >= 2500 && timeEllapsed < 3500) {
-            overlay.src='assets/face-part1-c.svg';
+        if(timeEllapsed >= 7000 && timeEllapsed < 12000) {
+            overlay.src='assets/overlay-part1-c.svg';
         }
-        if(timeEllapsed >= 3500 && timeEllapsed < recordingTimeMS) {
-            overlay.src='assets/face-part1-d.svg';
+        if(timeEllapsed >= 12000 && timeEllapsed < 14000) {
+            overlay.src='assets/overlay-part1-d.svg';
         }
+        if(timeEllapsed >= 14000 && timeEllapsed < 15000) {
+            overlay.src='assets/overlay-part1-e.svg';
+        }
+        if(timeEllapsed >= 15000 && timeEllapsed < 17000) {
+            overlay.src='assets/overlay-part1-f.svg';
+        }
+        if(timeEllapsed >= 17000 && timeEllapsed < 21000) {
+            overlay.src='assets/overlay-part1-g.svg';
+        }
+        if(timeEllapsed >= 21000 && timeEllapsed < 23000) {
+            overlay.src='assets/overlay-part1-h.svg';
+        }
+        if(timeEllapsed >= 23000 && timeEllapsed < 28000) {
+            overlay.src='assets/overlay-part1-i.svg';
+        }
+        if(timeEllapsed >= 28000 && timeEllapsed < 31000) {
+            overlay.src='assets/overlay-part1-j.svg';
+        }
+        if(timeEllapsed >= 31000 && timeEllapsed < 33000) {
+            overlay.src='assets/overlay-part1-k.svg';
+        }
+        if(timeEllapsed >= 33000 && timeEllapsed < 38000) {
+            overlay.src='assets/overlay-part1-l.svg';
+        }
+        if(timeEllapsed >= 38000 && timeEllapsed < recordingTimeMS) {
+            overlay.src='assets/overlay-part1-m.svg';
+        }
+
         if(timeEllapsed >= recordingTimeMS) {
             //overlay.src='assets/face-part1.svg';
             cancelAnimationFrame(request)
         }
+    }
 
+    if(mode ==2) {
+        // Animation for part 2
+        if(timeEllapsed >= 5000 && timeEllapsed < 8000) {
+            overlay.src='assets/overlay-part2-b.svg';
+        }
+        if(timeEllapsed >= 8000 && timeEllapsed < 10000) {
+            overlay.src='assets/overlay-part2-c.svg';
+        }
+        if(timeEllapsed >= 10000 && timeEllapsed < 12000) {
+            overlay.src='assets/overlay-part2-d.svg';
+        }
+        if(timeEllapsed >= 12000 && timeEllapsed < 13000) {
+            overlay.src='assets/overlay-part2-e.svg';
+        }
+        if(timeEllapsed >= 13000 && timeEllapsed < 14000) {
+            overlay.src='assets/overlay-part2-f.svg';
+        }
+        if(timeEllapsed >= 14000 && timeEllapsed < 15000) {
+            overlay.src='assets/overlay-part2-g.svg';
+        }
+        if(timeEllapsed >= 15000 && timeEllapsed < 16000) {
+            overlay.src='assets/overlay-part2-h.svg';
+        }
+        if(timeEllapsed >= 16000 && timeEllapsed < 17000) {
+            overlay.src='assets/overlay-part2-hh.svg';
+        }
+        if(timeEllapsed >= 17000 && timeEllapsed < 20000) {
+            overlay.src='assets/overlay-part2-hhh.svg';
+        }
+        if(timeEllapsed >= 20000 && timeEllapsed < 22000) {
+            overlay.src='assets/overlay-part2-i.svg';
+        }
+        if(timeEllapsed >= 22000 && timeEllapsed < 23000) {
+            overlay.src='assets/overlay-part2-j.svg';
+        }
+        if(timeEllapsed >= 23000 && timeEllapsed < 25000) {
+            overlay.src='assets/overlay-part2-k.svg';
+        }
+        if(timeEllapsed >= 25000 && timeEllapsed < 31000) {
+            overlay.src='assets/overlay-part2-kk.svg';
+        }
+        if(timeEllapsed >= 31000 && timeEllapsed < 38000) {
+            overlay.src='assets/overlay-part2-l.svg';
+        }
+        if(timeEllapsed >= 38000 && timeEllapsed < 39000) {
+            overlay.src='assets/overlay-part2-m.svg';
+        }
+        if(timeEllapsed >= 39000 && timeEllapsed < 40000) {
+            overlay.src='assets/overlay-part2-n.svg';
+        }
+        if(timeEllapsed >= 40000 && timeEllapsed < 42000) {
+            overlay.src='assets/overlay-part2-o.svg';
+        }
+        if(timeEllapsed >= 42000 && timeEllapsed < 44000) {
+            overlay.src='assets/overlay-part2-p.svg';
+        }
+        if(timeEllapsed >= 44000 && timeEllapsed < 46000) {
+            overlay.src='assets/overlay-part2-q.svg';
+        }
+        if(timeEllapsed >= 46000 && timeEllapsed < 49000) {
+            overlay.src='assets/overlay-part2-r.svg';
+        }
+        if(timeEllapsed >= 49000 && timeEllapsed < 52000) {
+            overlay.src='assets/overlay-part2-s.svg';
+        }
+        if(timeEllapsed >= 52000 && timeEllapsed < recordingTimeMS) {
+            overlay.src='assets/overlay-part2-t.svg';
+        }
+
+        if(timeEllapsed >= recordingTimeMS) {
+            //overlay.src='assets/face-part1.svg';
+            cancelAnimationFrame(request)
+        }
+    }
+
+    if(mode ==3) {
+        // No animation for part 3
+        cancelAnimationFrame(request);
     }
 }
