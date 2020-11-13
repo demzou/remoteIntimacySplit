@@ -1,5 +1,5 @@
 
-const accessToken = 'ya29.A0AfH6SMCP5lk2A1ynJWS_yMHd5aXQwClkzH9LcLXXQgsF2QmOLPxhH9i6ac0mIbh0yvFYPWG8Iy7mcxVwphJr7QuZlnscuHC-QjFvTfm0fpKviZDKETmRxYu7zWZKQr1dWsTVszScsXW7asllotzcEGDyOgBZVUE4zrPbptHHAvM';
+const accessToken = 'ya29.A0AfH6SMAsdnhkLLBqvP4PkghaWbalPtxV3R968hHUwAMZHVgUZY41IKdEF7jA5VdYdFmwLsT6NjvEw8VC-BNLJ-8syYaus5XZBUz6VynfqiOHCRS6_mPTiHyOXwaJvfpRGd_cP-wXa_m6jwPK9x_iPM-eERdPHh-nYk_HzOTpHiU';
 
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
@@ -30,6 +30,19 @@ stopButton.style.display = 'none';
 tab1.style.borderColor = '#73FF8C';
 tab1.style.color = '#73FF8C';
 
+
+// ----- Reset containers when changing tab
+const reset = () => {
+    recording.style.display = 'none';
+    uploadButton.style = '';
+    uploadButton.style.display = 'none';
+    uploadButton.innerHTML = 'Upload';
+    preview.style.display = '';
+    startButton.style = '';
+    startButton.innerHTML = 'Start recording';
+    overlay.style.display = '';
+    title.innerHTML = 'Preview';
+}
 
 
 // ------ Create JSON file and create downloadable blob, then upload to drive
@@ -75,20 +88,6 @@ saveUserData(userData, jsonName);
 uploadData();
 
 
-// ----- Reset containers when changing tab
-const reset = () => {
-    recording.style.display = 'none';
-    uploadButton.style = '';
-    uploadButton.style.display = 'none';
-    uploadButton.innerHTML = 'Upload';
-    preview.style.display = '';
-    startButton.style = '';
-    startButton.innerHTML = 'Start recording';
-    overlay.style.display = '';
-    title.innerHTML = 'Preview';
-}
-
-reset();
 
 // ----- Navigation
 tab1.onclick = () => {
