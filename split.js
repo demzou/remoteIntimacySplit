@@ -1,5 +1,5 @@
 
-const accessToken = 'ya29.A0AfH6SMCJZtlo_q1QvSJ9ziuR9I5tuIh4zFIFt9arEn2lYrp_RguMrM00q8rr1ks75r1WVn5TRatwogEhoUOncBY5M3paFiERyoMypN6x_lGi6pHMxoG5450zoo2Hvn7_55Zu0eFpIsHBi0FNDKityp13z6Ql6XbQlOEKtqo2i4-Z';
+const accessToken = 'ya29.A0AfH6SMCP5lk2A1ynJWS_yMHd5aXQwClkzH9LcLXXQgsF2QmOLPxhH9i6ac0mIbh0yvFYPWG8Iy7mcxVwphJr7QuZlnscuHC-QjFvTfm0fpKviZDKETmRxYu7zWZKQr1dWsTVszScsXW7asllotzcEGDyOgBZVUE4zrPbptHHAvM';
 
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
