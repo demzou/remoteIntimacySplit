@@ -32,8 +32,6 @@ tab1.style.color = '#73FF8C';
 
 
 
-
-
 // ------ Create JSON file and create downloadable blob, then upload to drive
 const saveUserData = (function () {
     let a = document.createElement('a');
@@ -77,11 +75,6 @@ saveUserData(userData, jsonName);
 uploadData();
 
 
-
-
-
-
-
 // ----- Reset containers when changing tab
 const reset = () => {
     recording.style.display = 'none';
@@ -94,6 +87,8 @@ const reset = () => {
     overlay.style.display = '';
     title.innerHTML = 'Preview';
 }
+
+reset();
 
 // ----- Navigation
 tab1.onclick = () => {
