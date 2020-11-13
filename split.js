@@ -18,6 +18,7 @@ let request;
 let startTime = Date.now();
 
 let recordingTimeMS = 45000;
+let folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';
 
 // ----- Hide elements when page loads (step2)
 recording.style.display = 'none';
@@ -50,6 +51,7 @@ tab1.onclick = () => {
     overlay.src='assets/overlay-part1-a.svg';
     mode =1;
     recordingTimeMS = 45000;
+    folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';   // Target folder for part 1
     reset();
 };
 tab2.onclick = () => {
@@ -64,6 +66,7 @@ tab2.onclick = () => {
     overlay.src='assets/overlay-part2-a.svg';
     mode=2;
     recordingTimeMS = 59000;
+    folderIdTarget = '1LgfIUuVH9SV4v6-5qbewFvRAiOzaiwSs';   // Target folder for part 2
     reset();
 };
 tab3.onclick = () => {
@@ -78,6 +81,7 @@ tab3.onclick = () => {
     overlay.src='assets/overlay-part3.svg';
     mode=3;
     recordingTimeMS = 30000;
+    folderIdTarget = '1PYkiYv-Cy83ls3hnQN9KadSDEA0ntP6p';     // Target folder for part 3
     reset();
 };
 
@@ -195,7 +199,7 @@ stopButton.addEventListener("click", function() {
 
 // GDrive API Access token
 //const accessToken = gapi.auth.getToken().access_token; // Please set access token here.
-const accessToken = 'ya29.A0AfH6SMB-KHpcxI-TbseV2s-AlASOvSuJHECPNwVCUtC_P76hzcZKUqaaQbEdPgyZHjGPCTl0-A2kU_NqVexhtpVaYs-Sj-waXr4GICWFLwAPI0hSZpan6FUQddCSD-SO1dhPeVlurILJ_Y0eLiW69UfF0VQS209gWrLI44AXXE4';
+const accessToken = 'ya29.A0AfH6SMCwaceK2pxDw0b1CGXHSg003nty504SVpUpEXSITdSpSpeaJLflqlz6ByPj6WSzG_MPTB0W-oAq0YZ7ELFhwOR1-RnPKrqBqzv3nXEsXjqUXfrSfa87OHxEUurqUeIWtpLh1VNSI6lUrJ1rtIrRmaGBtaGNuQUU2eeUWUI';
 //https://developers.google.com/oauthplayground//
 // Will need to create proper authentification
 
@@ -227,7 +231,7 @@ function resumableUpload(e) {
         fileType: f.fileType,
         fileBuffer: f.result,
         accessToken: accessToken,
-        folderId: '1UBJ-nCLMRzh16SdjQCXzAPODaTxQZNWl'
+        folderId: folderIdTarget
     };
     const ru = new ResumableUploadToGoogleDrive();
     ru.Do(resource, function(res, err) {
