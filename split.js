@@ -99,28 +99,29 @@ submit.onclick = ()=> {
       }
     // console.log(firstName + lastName + consent);
 
-    userData = {
-        firstName: firstName,
-        lastName: lastName,
-        date: new Date(),
-        consent: consent
-    }, 
-    jsonName = userData.firstName + '-consent-form.json';
-    saveUserData(userData, jsonName);
-    uploadData();
-
-    // Show rest of the page
-    nav.style.display = '';
-    content.style.display = '';
-    form.style.display = 'none';
-
-    setTimeout(function(){ 
-        uploadButton.style = '';
-        uploadButton.style.display = 'none';
-        uploadButton.innerHTML = 'Upload';
-        folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';   // Target folder for part 1
-    }, 10000);
+    if(firstName!='' && lastName!='' && console!='') {
+        userData = {
+            firstName: firstName,
+            lastName: lastName,
+            date: new Date(),
+            consent: consent
+        }, 
+        jsonName = userData.firstName + '-consent-form.json';
+        saveUserData(userData, jsonName);
+        uploadData();
     
+        // Show rest of the page
+        nav.style.display = '';
+        content.style.display = '';
+        form.style.display = 'none';
+    
+        setTimeout(function(){ 
+            uploadButton.style = '';
+            uploadButton.style.display = 'none';
+            uploadButton.innerHTML = 'Upload';
+            folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';   // Target folder for part 1
+        }, 10000);
+    }
 };
 
 
