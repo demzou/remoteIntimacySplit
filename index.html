@@ -21,7 +21,29 @@
             Part 3
         </div>
     </header>
-    <div class="container">
+    <div id="form-section" class="form-container">
+        <h1>Welcome!</h1>
+        <form id="consentForm" onsubmit="return false">
+            <!-- <label for="firstName">First Name</label><br> -->
+            <h3>First Name</h2>
+            <input type="text" id="firstName" name="firstName" class="text-input" required> <br>
+            <!-- <label for="lastName">Last Name</label><br> -->
+            <h3>Last Name</h2>
+            <input type="text" id="lastName" name="lastName" class="text-input" required><br>
+            <h3>Do you consent to your videos being used after this workshop?</h3>
+            <input type="radio" id="yes" name="consent" value="true" required>
+            <label for="yes">Yes, my videos can be used outside of this workshop.</label><br>
+            <p class="consent-details">By selecting this option, you allow Clemence Debaig to reuse the videos you have recorded during this workshop for promotional purposes (for example, on social media to promote a future workshop). You can revoke your consent at any time by contacting clemence.debaig@gmail.com </p>
+            <input type="radio" id="no" name="consent" value="false">
+            <label for=no>No, I do not want my videos to be used outside of this workshop.</label><br>
+            <p class="consent-details">If you select this option, all your uploaded videos will be deleted from our servers straight after the workshop. The videos will still be used during the session and be played back to the other participants.</p>
+            <input type="submit" id="submit" class="submit-button">
+            <!-- <a id="submit" class="button">
+                Submit  
+                </a> -->
+        </form>
+    </div>
+    <div id="mainContainer" class="container">
         <h2 id="title">Preview</h2>
 
         <div class="video-img-stack">

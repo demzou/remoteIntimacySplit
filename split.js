@@ -1,6 +1,9 @@
 
-const accessToken = 'ya29.A0AfH6SMAsdnhkLLBqvP4PkghaWbalPtxV3R968hHUwAMZHVgUZY41IKdEF7jA5VdYdFmwLsT6NjvEw8VC-BNLJ-8syYaus5XZBUz6VynfqiOHCRS6_mPTiHyOXwaJvfpRGd_cP-wXa_m6jwPK9x_iPM-eERdPHh-nYk_HzOTpHiU';
+const accessToken = 'ya29.A0AfH6SMDuQ-NdmH1icyVajG7k67UdB8hEYOsl-zb8igqEEav8WDchC0RyaytmopnhYLMVQ46OXvpIDbf8myqncOGWm48f2DBuak6InxeUQ4Sw_BDLjISe4X4H_1pmFqUClALTAidb_aVhNvaWIaWc79GFmk15nOr3k1NiUkG-LVQ';
 
+let nav = document.querySelector('header');
+let content = document.getElementById('mainContainer');
+let form = document.getElementById('form-section');
 let preview = document.getElementById("preview");
 let recording = document.getElementById("recording");
 let pageTitle = document.getElementById("title");
@@ -10,6 +13,12 @@ let downloadButton = document.getElementById("downloadButton");
 let uploadButton = document.getElementById("uploadButton");
 let logElement = document.getElementById("log");
 let overlay = document.getElementById("silhouette");
+
+let firstName;
+let lastName;
+let radios = document.getElementsByName("consent");
+let submit = document.getElementById("submit");
+let consent;
 
 let tab1 = document.getElementById("part1");
 let tab2 = document.getElementById("part2");
@@ -23,7 +32,11 @@ let startTime = Date.now();
 let recordingTimeMS = 45000;
 let folderIdTarget = '1ATJ8lvOvZDFAuDw8Anc1V3rF9PTStEZz';       // Consent folder
 
-// ----- Hide elements when page loads
+let userData;
+
+// ----- Hide elements when page loads & default styles
+nav.style.display = 'none';
+content.style.display = 'none';
 recording.style.display = 'none';
 uploadButton.style.display = 'none';
 stopButton.style.display = 'none';
@@ -75,18 +88,33 @@ function uploadData(obj) {
     }
   }
 
-// ------ User data and consent (JSON)
-let userData = {
-    firstName: 'Clem',
-    lastName: 'Debaig',
-    date: new Date(),
-    consent: true
-}, 
-jsonName = userData.firstName + '-consent-form.json';
+// ---- Submit form
+submit.onclick = ()=> {
+    firstName = document.getElementById("firstName").value;
+    lastName = document.getElementById("lastName").value;
+    for (let i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+          consent = radios[i].value;
+        }
+      }
+    // console.log(firstName + lastName + consent);
 
-saveUserData(userData, jsonName);
-uploadData();
+    userData = {
+        firstName: firstName,
+        lastName: lastName,
+        date: new Date(),
+        consent: consent
+    }, 
+    jsonName = userData.firstName + '-consent-form.json';
+    saveUserData(userData, jsonName);
+    uploadData();
 
+    // Show rest of the oage
+    nav.style.display = '';
+    content.style.display = '';
+    form.style.display = 'none';
+
+};
 
 
 // ----- Navigation
@@ -172,6 +200,10 @@ function startRecording(stream, lengthInMS) {
     startButton.style.backgroundColor = "red";
     startButton.style.color = "white";
     pageTitle.innerHTML = "Recording";
+
+    uploadButton.style = '';
+    uploadButton.style.display = 'none';
+    uploadButton.innerHTML = 'Upload';
 
     overlayAnimation();
 
