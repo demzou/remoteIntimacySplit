@@ -109,11 +109,18 @@ submit.onclick = ()=> {
     saveUserData(userData, jsonName);
     uploadData();
 
-    // Show rest of the oage
+    // Show rest of the page
     nav.style.display = '';
     content.style.display = '';
     form.style.display = 'none';
 
+    setTimeout(function(){ 
+        uploadButton.style = '';
+        uploadButton.style.display = 'none';
+        uploadButton.innerHTML = 'Upload';
+        folderIdTarget = '1uWflZozLy1a9iCxO9rFeiLbkOsi5UbJs';   // Target folder for part 1
+    }, 10000);
+    
 };
 
 
@@ -201,9 +208,9 @@ function startRecording(stream, lengthInMS) {
     startButton.style.color = "white";
     pageTitle.innerHTML = "Recording";
 
-    uploadButton.style = '';
-    uploadButton.style.display = 'none';
-    uploadButton.innerHTML = 'Upload';
+    // uploadButton.style = '';
+    // uploadButton.style.display = 'none';
+    // uploadButton.innerHTML = 'Upload';
 
     overlayAnimation();
 
@@ -296,7 +303,7 @@ function run(obj) {
     if (file.name != "") {
       let fr = new FileReader();
       //fr.fileName = file.name;
-      fr.fileName = 'video.webm';       // /!\ update file name with some metadate
+      fr.fileName = mode+'-'+userData.firstName+'.webm';
       fr.fileSize = file.size;
       fr.fileType = file.type;
       fr.readAsArrayBuffer(file);
