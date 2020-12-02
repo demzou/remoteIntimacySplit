@@ -1,7 +1,8 @@
-var d = new Date();
-d.setTime(d.getTime() + (30*24*60*60*1000)); //keep cookie 30 days
-var expires = "expires=" + d.toGMTString();         
-document.cookie = "visitName" + "=Hailin;" + expires + ";path=/;SameSite=None;Secure"; //can set SameSite=Lax also
+//var dd = new Date();
+//dd.setTime(d.getTime() + (30*24*60*60*1000)); //keep cookie 30 days
+//var expires = "expires=" + dd.toGMTString();         
+//document.cookie = "visitName" + "=Hailin;" + expires + ";path=/;SameSite=None;Secure"; //can set SameSite=Lax also
+//document.cookie = "SameSite=None;Secure"; //can set SameSite=Lax also
 
 
 
@@ -34,8 +35,8 @@ document.cookie = "visitName" + "=Hailin;" + expires + ";path=/;SameSite=None;Se
 
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '1010352766136-afp7r1mhlmfh4eutea2lta4s8treeotg.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyBaEbFQh_smzM8eu0AhejSy9DilRm3Bl6o';
+var CLIENT_ID = '966267817412-9c0b5qgnfp2f3btvk63vbe3bl4jbqjb6.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyB24IF1kGfHIZ-9PFEiue83nCrM283WFIw';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
