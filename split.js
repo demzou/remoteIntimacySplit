@@ -2,7 +2,7 @@
 //dd.setTime(d.getTime() + (30*24*60*60*1000)); //keep cookie 30 days
 //var expires = "expires=" + dd.toGMTString();         
 //document.cookie = "visitName" + "=Hailin;" + expires + ";path=/;SameSite=None;Secure"; //can set SameSite=Lax also
-//document.cookie = "SameSite=None;Secure"; //can set SameSite=Lax also
+document.cookie = "cookie2=value2; SameSite=None;Secure"; //can set SameSite=Lax also
 
 
 
