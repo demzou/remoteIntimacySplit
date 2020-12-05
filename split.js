@@ -29,7 +29,7 @@ let mode = 1;
 let request;
 let startTime = Date.now();
 
-let recordingTimeMS = 45000;
+let recordingTimeMS = 35000;
 let folderIdTarget = '1-tgcOcf-G8dSs5Oi4AoeBmAC9u3pykDQ';       // Consent folder
 
 let userData;
@@ -135,9 +135,9 @@ tab1.onclick = () => {
     tab3.style.borderColor = 'black';
     tab3.style.color = 'white';
 
-    overlay.src='assets/overlay-part1-a.svg';
+    overlay.src='assets/2overlay-part1-a.svg';
     mode =1;
-    recordingTimeMS = 45000;
+    recordingTimeMS = 35000;
     folderIdTarget = '1BTREubLbhROg6oqifOvRMlrVuIBY0pf5';   // Target folder for part 1
     reset();
 };
@@ -150,7 +150,7 @@ tab2.onclick = () => {
     tab3.style.borderColor = 'black';
     tab3.style.color = 'white';
 
-    overlay.src='assets/overlay-part2-a.svg';
+    overlay.src='assets/2overlay-part2-a.svg';
     mode=2;
     recordingTimeMS = 59000;
     folderIdTarget = '1EjUlu0WgbcMo3cCKK9C4RYKsOfGeAC9w';   // Target folder for part 2
@@ -165,7 +165,7 @@ tab3.onclick = () => {
     tab1.style.borderColor = 'black';
     tab1.style.color = 'white';
 
-    overlay.src='assets/overlay-part3.svg';
+    overlay.src='assets/2overlay-part3-a.svg';
     mode=3;
     recordingTimeMS = 30000;
     folderIdTarget = '1FNNEvZjfN2jFrnYKf7wLOTC32AYlclQ7';     // Target folder for part 3
@@ -359,41 +359,56 @@ const overlayAnimation = () => {
 
     if(mode ==1) {
         // Animation for part 1
-        if(timeEllapsed >= 4000 && timeEllapsed < 7000) {
-            overlay.src='assets/overlay-part1-b.svg';
+        if(timeEllapsed >= 2000 && timeEllapsed < 5000) {
+            overlay.src='assets/2overlay-part1-b.svg';
         }
-        if(timeEllapsed >= 7000 && timeEllapsed < 12000) {
-            overlay.src='assets/overlay-part1-c.svg';
+        if(timeEllapsed >= 5000 && timeEllapsed < 9000) {
+            overlay.src='assets/2overlay-part1-c.svg';
         }
-        if(timeEllapsed >= 12000 && timeEllapsed < 14000) {
-            overlay.src='assets/overlay-part1-d.svg';
+        if(timeEllapsed >= 9000 && timeEllapsed < 11000) {
+            overlay.src='assets/2overlay-part1-d.svg';
         }
-        if(timeEllapsed >= 14000 && timeEllapsed < 15000) {
-            overlay.src='assets/overlay-part1-e.svg';
+        if(timeEllapsed >= 11000 && timeEllapsed < 12000) {
+            overlay.src='assets/2overlay-part1-e.svg';
         }
-        if(timeEllapsed >= 15000 && timeEllapsed < 17000) {
-            overlay.src='assets/overlay-part1-f.svg';
+        if(timeEllapsed >= 12000 && timeEllapsed < 13000) {
+            overlay.src='assets/2overlay-part1-f.svg';
         }
-        if(timeEllapsed >= 17000 && timeEllapsed < 21000) {
-            overlay.src='assets/overlay-part1-g.svg';
+        if(timeEllapsed >= 13000 && timeEllapsed < 15000) {
+            overlay.src='assets/2overlay-part1-i.svg';
         }
-        if(timeEllapsed >= 21000 && timeEllapsed < 23000) {
-            overlay.src='assets/overlay-part1-h.svg';
+        if(timeEllapsed >= 15000 && timeEllapsed < 18000) {
+            overlay.src='assets/2overlay-part1-j.svg';
         }
-        if(timeEllapsed >= 23000 && timeEllapsed < 28000) {
-            overlay.src='assets/overlay-part1-i.svg';
+        if(timeEllapsed >= 18000 && timeEllapsed < 20000) {
+            overlay.src='assets/2overlay-part1-k.svg';
         }
-        if(timeEllapsed >= 28000 && timeEllapsed < 31000) {
-            overlay.src='assets/overlay-part1-j.svg';
+        if(timeEllapsed >= 20000 && timeEllapsed < 22000) {
+            overlay.src='assets/2overlay-part1-l.svg';
         }
-        if(timeEllapsed >= 31000 && timeEllapsed < 33000) {
-            overlay.src='assets/overlay-part1-k.svg';
+        if(timeEllapsed >= 22000 && timeEllapsed < 24000) {
+            overlay.src='assets/2overlay-part1-m.svg';
         }
-        if(timeEllapsed >= 33000 && timeEllapsed < 38000) {
-            overlay.src='assets/overlay-part1-l.svg';
+        if(timeEllapsed >= 24000 && timeEllapsed < 25000) {
+            overlay.src='assets/2overlay-part1-n.svg';
         }
-        if(timeEllapsed >= 38000 && timeEllapsed < recordingTimeMS) {
-            overlay.src='assets/overlay-part1-m.svg';
+        if(timeEllapsed >= 25000 && timeEllapsed < 26000) {
+            overlay.src='assets/2overlay-part1-o.svg';
+        }
+        if(timeEllapsed >= 26000 && timeEllapsed < 29000) {
+            overlay.src='assets/2overlay-part1-p.svg';
+        }
+        if(timeEllapsed >= 29000 && timeEllapsed < 31000) {
+            overlay.src='assets/2overlay-part1-q.svg';
+        }
+        if(timeEllapsed >= 31000 && timeEllapsed < 32000) {
+            overlay.src='assets/2overlay-part1-r.svg';
+        }
+        if(timeEllapsed >= 32000 && timeEllapsed < 33000) {
+            overlay.src='assets/2overlay-part1-s.svg';
+        }
+        if(timeEllapsed >= 33000 && timeEllapsed < recordingTimeMS) {
+            overlay.src='assets/2overlay-part1-t.svg';
         }
 
         if(timeEllapsed >= recordingTimeMS) {
@@ -404,71 +419,86 @@ const overlayAnimation = () => {
 
     if(mode ==2) {
         // Animation for part 2
-        if(timeEllapsed >= 5000 && timeEllapsed < 8000) {
-            overlay.src='assets/overlay-part2-b.svg';
+        if(timeEllapsed >= 1000 && timeEllapsed < 3000) {
+            overlay.src='assets/2overlay-part2-b.svg';
         }
-        if(timeEllapsed >= 8000 && timeEllapsed < 10000) {
-            overlay.src='assets/overlay-part2-c.svg';
+        if(timeEllapsed >= 3000 && timeEllapsed < 8000) {
+            overlay.src='assets/2overlay-part2-c.svg';
         }
-        if(timeEllapsed >= 10000 && timeEllapsed < 12000) {
-            overlay.src='assets/overlay-part2-d.svg';
+        if(timeEllapsed >= 8000 && timeEllapsed < 9000) {
+            overlay.src='assets/2overlay-part2-d.svg';
+        }
+        if(timeEllapsed >= 9000 && timeEllapsed < 9500) {
+            overlay.src='assets/2overlay-part2-e.svg';
+        }
+        if(timeEllapsed >= 9500 && timeEllapsed < 10000) {
+            overlay.src='assets/2overlay-part2-f.svg';
+        }
+        if(timeEllapsed >= 10000 && timeEllapsed < 11000) {
+            overlay.src='assets/2overlay-part2-g.svg';
+        }
+        if(timeEllapsed >= 11000 && timeEllapsed < 12000) {
+            overlay.src='assets/2overlay-part2-h.svg';
         }
         if(timeEllapsed >= 12000 && timeEllapsed < 13000) {
-            overlay.src='assets/overlay-part2-e.svg';
+            overlay.src='assets/2overlay-part2-i.svg';
         }
-        if(timeEllapsed >= 13000 && timeEllapsed < 14000) {
-            overlay.src='assets/overlay-part2-f.svg';
+        if(timeEllapsed >= 13000 && timeEllapsed < 18000) {
+            overlay.src='assets/2overlay-part2-j.svg';
         }
-        if(timeEllapsed >= 14000 && timeEllapsed < 15000) {
-            overlay.src='assets/overlay-part2-g.svg';
-        }
-        if(timeEllapsed >= 15000 && timeEllapsed < 16000) {
-            overlay.src='assets/overlay-part2-h.svg';
-        }
-        if(timeEllapsed >= 16000 && timeEllapsed < 17000) {
-            overlay.src='assets/overlay-part2-hh.svg';
-        }
-        if(timeEllapsed >= 17000 && timeEllapsed < 20000) {
-            overlay.src='assets/overlay-part2-hhh.svg';
+        if(timeEllapsed >= 18000 && timeEllapsed < 20000) {
+            overlay.src='assets/2overlay-part2-k.svg';
         }
         if(timeEllapsed >= 20000 && timeEllapsed < 22000) {
-            overlay.src='assets/overlay-part2-i.svg';
+            overlay.src='assets/2overlay-part2-l.svg';
         }
-        if(timeEllapsed >= 22000 && timeEllapsed < 23000) {
-            overlay.src='assets/overlay-part2-j.svg';
+        if(timeEllapsed >= 22000 && timeEllapsed < 24000) {
+            overlay.src='assets/2overlay-part2-m.svg';
         }
-        if(timeEllapsed >= 23000 && timeEllapsed < 25000) {
-            overlay.src='assets/overlay-part2-k.svg';
+        if(timeEllapsed >= 24000 && timeEllapsed < 28000) {
+            overlay.src='assets/2overlay-part2-n.svg';
         }
-        if(timeEllapsed >= 25000 && timeEllapsed < 31000) {
-            overlay.src='assets/overlay-part2-kk.svg';
+        if(timeEllapsed >= 28000 && timeEllapsed < 30000) {
+            overlay.src='assets/2overlay-part2-o.svg';
         }
-        if(timeEllapsed >= 31000 && timeEllapsed < 38000) {
-            overlay.src='assets/overlay-part2-l.svg';
+        if(timeEllapsed >= 30000 && timeEllapsed < 32000) {
+            overlay.src='assets/2overlay-part2-p.svg';
         }
-        if(timeEllapsed >= 38000 && timeEllapsed < 39000) {
-            overlay.src='assets/overlay-part2-m.svg';
+        if(timeEllapsed >= 32000 && timeEllapsed < 33000) {
+            overlay.src='assets/2overlay-part2-q.svg';
+        }
+        if(timeEllapsed >= 33000 && timeEllapsed < 34000) {
+            overlay.src='assets/2overlay-part2-r.svg';
+        }
+        if(timeEllapsed >= 34000 && timeEllapsed < 35000) {
+            overlay.src='assets/2overlay-part2-s.svg';
+        }
+        if(timeEllapsed >= 35000 && timeEllapsed < 39000) {
+            overlay.src='assets/2overlay-part2-t.svg';
         }
         if(timeEllapsed >= 39000 && timeEllapsed < 40000) {
-            overlay.src='assets/overlay-part2-n.svg';
+            overlay.src='assets/2overlay-part2-u.svg';
         }
         if(timeEllapsed >= 40000 && timeEllapsed < 42000) {
-            overlay.src='assets/overlay-part2-o.svg';
+            overlay.src='assets/2overlay-part2-v.svg';
         }
-        if(timeEllapsed >= 42000 && timeEllapsed < 44000) {
-            overlay.src='assets/overlay-part2-p.svg';
+        if(timeEllapsed >= 42000 && timeEllapsed < 46000) {
+            overlay.src='assets/2overlay-part2-w.svg';
         }
-        if(timeEllapsed >= 44000 && timeEllapsed < 46000) {
-            overlay.src='assets/overlay-part2-q.svg';
+        if(timeEllapsed >= 46000 && timeEllapsed < 48000) {
+            overlay.src='assets/2overlay-part2-x.svg';
         }
-        if(timeEllapsed >= 46000 && timeEllapsed < 49000) {
-            overlay.src='assets/overlay-part2-r.svg';
+        if(timeEllapsed >= 48000 && timeEllapsed < 51000) {
+            overlay.src='assets/2overlay-part2-y.svg';
         }
-        if(timeEllapsed >= 49000 && timeEllapsed < 52000) {
-            overlay.src='assets/overlay-part2-s.svg';
+        if(timeEllapsed >= 52000 && timeEllapsed < 53000) {
+            overlay.src='assets/2overlay-part2-z.svg';
         }
-        if(timeEllapsed >= 52000 && timeEllapsed < recordingTimeMS) {
-            overlay.src='assets/overlay-part2-t.svg';
+        if(timeEllapsed >= 53000 && timeEllapsed < 57000) {
+            overlay.src='assets/2overlay-part2-zz.svg';
+        }
+        if(timeEllapsed >= 57000 && timeEllapsed < recordingTimeMS) {
+            overlay.src='assets/2overlay-part2-zzz.svg';
         }
 
         if(timeEllapsed >= recordingTimeMS) {
